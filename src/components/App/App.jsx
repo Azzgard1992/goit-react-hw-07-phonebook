@@ -1,18 +1,18 @@
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { PhoneBookForm } from '../PhoneBookForm/PhoneBookForm';
 import { ContactList } from '../ContactsList/ContactsList';
 import { Filter } from '../Filter/Filter';
-import { Box, Title } from './PhoneBook.styled';
+import { ContactsTitle, Title } from './App.styled';
+import { Box } from 'components/Box/Box';
 
-export const PhoneBook = () => {
+export const App = () => {
   return (
-    <Box>
-      <Title>Phonebook</Title>
+    <Box pt="4" width="1200px" mx="auto" as="main">
+      <Title>Phoonebook</Title>
       <PhoneBookForm />
+      <ContactsTitle>Contacts</ContactsTitle>
       <Filter />
       <ContactList />
-      <ToastContainer />
     </Box>
   );
 };

@@ -4,7 +4,7 @@ import {
   useAddContactMutation,
   useGetContactsQuery,
 } from '../../redux/contactsApi';
-import { FormBox, InputName, InputBox, BtnWrap } from './PhoneBookForm.styled';
+import { BtnWrap, StyledForm, Label, Input } from './PhoneBookForm.styled';
 import { LoadingButton } from '@mui/lab';
 import SendIcon from '@mui/icons-material/Send';
 
@@ -18,7 +18,7 @@ export const PhoneBookForm = () => {
     );
 
     if (isInclude) {
-      toast(` ${name} is already in contacts.`);
+      alert(` ${name} is already in contacts.`);
       return;
     }
 
@@ -32,27 +32,20 @@ export const PhoneBookForm = () => {
 
   return (
     <Formik initialValues={{ name: '', number: '' }} onSubmit={submitForm}>
-      <FormBox>
-        <InputName>
+      <StyledForm>
+        <Label>
           Name
-          <InputBox
-            type="text"
-            name="name"
-            required
-            placeholder="jason Statham"
-          />
-        </InputName>
-        <InputName>
+          <Input type="text" name="name" required />
+        </Label>
+        <Label>
           Number
-          <InputBox
+          <Input
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            placeholder="+380991234567"
             required
           />
-        </InputName>
+        </Label>
         <BtnWrap>
           <LoadingButton
             type="submit"
@@ -65,7 +58,7 @@ export const PhoneBookForm = () => {
             Add constact
           </LoadingButton>
         </BtnWrap>
-      </FormBox>
+      </StyledForm>
     </Formik>
   );
 };

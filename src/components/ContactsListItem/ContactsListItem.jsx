@@ -24,11 +24,10 @@ export const ContactListItem = ({ contact }) => {
       <LoadingButton
         type="button"
         onClick={() => delateContact(contact.id)}
-        color={'error'}
         endIcon={<BsTrash />}
         loading={isLoading}
         loadingPosition="end"
-        variant="outlined"
+        variant="contained"
         disabled={isLoading}
       >
         Delate
